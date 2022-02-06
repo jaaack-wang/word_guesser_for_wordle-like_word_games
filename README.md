@@ -4,17 +4,17 @@ This is a simple and easy-to-use program to help you find candidate words for Wo
 
 ## Purpose
 
-The main purpose of this program is to help myself to play Wordle-like word games. I always see myself a competent or an advanced English speaker, but when I played Wordle, I found it hard or unnatural for me to just come up with a 5-letter word based on certain clues, so I have never really passed a game without "cheating". However, when I played [a Chinese version of Wordle](https://cheeaun.github.io/chengyu-wordle/?fbclid=IwAR1zrZZ8ME5SB5q8ILTXZJ7yQ9bGI677E1RSpqkpqVN1B0btwL1W1rbk2so) guessing 4-char idioms, that instantly becomes a piece of cake for me. I can think of possible combinations effortlessly and get my guesses right with few tries (on average around 3 tries or less?) just on my own. 
+The main purpose of this program is to help myself to play Wordle-like word games. I always see myself as a competent or an advanced English speaker, but when I played Wordle, I found it hard or unnatural for me to just come up with a 5-letter word based on certain clues, so I have never really passed a game without "cheating". However, when I played [a Chinese version of Wordle](https://cheeaun.github.io/chengyu-wordle/?fbclid=IwAR1zrZZ8ME5SB5q8ILTXZJ7yQ9bGI677E1RSpqkpqVN1B0btwL1W1rbk2so) guessing 4-char idioms, that instantly becomes a piece of cake for me. I can think of possible combinations effortlessly and get my guesses right with few tries (on average around 3 tries or less?) just on my own. 
 
-As a linguist, I realized that this interesting phenomenon may have to do with how I mentally process Chinese and English as a native and non-native speaker. So I gave up the idea that I could play the Original Wordle as well as native English speakers and designed this simple program to give myself hints when palying Wordle. 
+As a linguist, I realized that this interesting phenomenon may have to do with how I mentally process Chinese and English as a native and a non-native speaker respectively. So I gave up the idea that I could play the original Wordle as well as native English speakers and designed this simple program to give myself hints when playing Wordle. 
 
 ## Usage
 
-If you rely on this program entirely to play Wordle game, the game will become no fun. Instead, I would suggest you to utilize this program as something that give hints. In line with this, the program was not designed to automatically play the Wordle-like games on a webpage (that would make it more complicated too).  
+If you rely on this program entirely to play Wordle game, the game will become no fun. Instead, I would suggest you to utilize this program as something that give hints. In line with this, the program was not designed to automatically play the Wordle-like games on a webpage.  
 
 The following is a test example run on Feb 6, 2022 exclusivly using the program. 
 
-- Initialization
+### Initialization
 
 ```python
 >>> from wordGuesser import Guesser
@@ -23,7 +23,8 @@ The following is a test example run on Feb 6, 2022 exclusivly using the program.
 >>> seed(232) # set a random seed so you can reproduce the result
 ```
 
-- Randomly guessing a word that has no repetitive chars (to maximize hints) 
+
+### Randomly guessing a word that has no repetitive chars (to maximize hints) 
 
 ```python
 # by default, out_num=1 (return string) 
@@ -31,7 +32,8 @@ The following is a test example run on Feb 6, 2022 exclusivly using the program.
 # output: ['molar', 'drive', 'knish', 'cline', 'chins']
 ```
 
-- Based on hints, conditionally guessing the possible candidate words
+
+### Based on hints, conditionally guessing the possible candidate words
 
 Please note that, the inclusion and exclusion conditions can be a str, a tuple (char_str, position_idx), and a list (str and/or tuple combination). 
 
@@ -42,14 +44,15 @@ Please note that, the inclusion and exclusion conditions can be a str, a tuple (
 # 432
 ```
 
-- Randomly guessing a word (no repetitive chars) from the candidate words
+### Randomly guessing a word (no repetitive chars) from the candidate words
 
 ```python
 >>> G.random_guess()
 # output: laity
 ```
 
-- Repeating the previous two steps until only one answer is found
+### Repeating the previous two steps until only one answer is found
+
 ```python
 # G is self callable (equal to G.find_candidates) after initialization
 >>> cands = G(include=[('i', 2), 'l'], 
@@ -68,8 +71,8 @@ Please note that, the inclusion and exclusion conditions can be a str, a tuple (
 # output: ['skill']
 ```
 
-
+### Test play
 
 <p align='center'>
- <img align="center" src="./img/test_example.png">
+ <img align="center" height="600px" width="450px" src="./test_example.png">
 </p>
